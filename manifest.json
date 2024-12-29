@@ -1,0 +1,22 @@
+{
+    "manifest_version": 3,
+    "name": "Ad Detector fro Naver Blog",
+    "version": "1.0",
+    "description": "Check isAd in Naver Blog.",
+    "permissions": ["tabs", "activeTab", "storage"],
+    "trial_tokens": ["토큰"],
+    "host_permissions": ["https://blog.naver.com/*", "http://blog.naver.com/*"],
+    "action": {
+        "default_popup": "adKill.html",
+        "default_icon": "adKill.png"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://blog.naver.com/*", "http://blog.naver.com/*"],
+            "js": ["content.js"]
+        }
+    ]
+}
